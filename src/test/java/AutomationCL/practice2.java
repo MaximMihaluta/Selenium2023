@@ -42,8 +42,8 @@ public class practice2 {
         WebElement password = driver.findElement(By.xpath("//input[@name=\"ctl00$MainContent$password\"]"));
         WebElement submitBtn = driver.findElement(By.xpath("//input[@name=\"ctl00$MainContent$login_button\"]"));
 
-        login.sendKeys("tester");
-        password.sendKeys("tester");
+        login.sendKeys("Tester");
+        password.sendKeys("test");
         submitBtn.click();
     }
 

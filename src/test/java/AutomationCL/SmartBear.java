@@ -12,30 +12,81 @@ import java.util.concurrent.TimeUnit;
 public class SmartBear {
     public static void main(String[] args) {
 
+//
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver = new ChromeDriver();
+//        driver.manage().window().maximize();driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+//        driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
+//
+//        practice2.loginpractice2(driver);
+//
+//
+//
+//
+//    }
+//
+//    public static void verifyOrder(WebDriver driver, String login){
+//        List<WebElement> allnames = driver.findElements(By.xpath("//table[@id=\"ctl00_MainContent_orderGrid\"]/tbody/tr/td[2]"));
+//
+//        for (WebElement names : allnames){
+//            if(names.getText().contains(login)){
+//                System.out.println("PASS");
+//                //break ; // break or exit the loop
+//                return; //stop and return the line
+//            }
+//        }
+//        System.out.println("Failed");
 
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
-
-        practice2.loginpractice2(driver);
 
 
 
+//        #1: Smartbear   software    link    verification
+//        1.Open   browser
+//        2.Go to  website: http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx
+                WebDriverManager.chromedriver().setup();
+                WebDriver driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+                driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+                driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
+//        WebElement login = driver.findElement(By.xpath("//input[@name=\"ctl00$MainContent$username\"]"));
+//        WebElement pass = driver.findElement(By.xpath("//input[@name=\"ctl00$MainContent$password\"]"));
+//        WebElement submitBtn = driver.findElement(By.xpath("//input[@name=\"ctl00$MainContent$login_button\"]"));
+//
+////        3.Enter username: "Tester"
+//        login.sendKeys("Tester");
+////        4.Enter password: "test"
+//        pass.sendKeys("test");
+////        5.Click to Login button
+//        submitBtn.click();
+                loginToSmartBear(driver);
+//        6.Print out and count of all the links on landing page //a
+                List<WebElement> links = driver.findElements(By.xpath("//body//a"));
+                int count = links.size();
+                System.out.println(count);
+//        7.Print out each link text on this page
+                for (WebElement link :links) {
+//            System.out.println(link);
+                    System.out.println(link.getText());
+                }
+//
+//        Mini-Task:
+//        1. Create a method called loginToSmartBear
+//        2. This method simply logs in to SmartBear when you call it
+            }
+            public static void loginToSmartBear ( WebDriver driver) {
+                WebElement login = driver.findElement(By.xpath("//input[@name=\"ctl00$MainContent$username\"]"));
+                WebElement pass = driver.findElement(By.xpath("//input[@name=\"ctl00$MainContent$password\"]"));
+                WebElement submitBtn = driver.findElement(By.xpath("//input[@name=\"ctl00$MainContent$login_button\"]"));
 
-    }
-
-    public static void verifyOrder(WebDriver driver, String login){
-        List<WebElement> allnames = driver.findElements(By.xpath("//table[@id=\"ctl00_MainContent_orderGrid\"]/tbody/tr/td[2]"));
-
-        for (WebElement names : allnames){
-            if(names.getText().contains(login)){
-                System.out.println("PASS");
-                //break ; // break or exit the loop
-                return; //stop and return the line
+                login.sendKeys("Tester");
+                pass.sendKeys("test");
+                submitBtn.click();
             }
         }
-        System.out.println("Failed");
-    }
 
-}
+
+
+
+
+
+
